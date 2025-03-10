@@ -1,0 +1,489 @@
+@charset "UTF-8";
+
+body {
+  font-family: "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "Sawarabi Mincho", "HG明朝E", Meiryo, serif;
+  font-weight: lighter;
+  font-family: "Zen Kaku Gothic New", serif;
+  font-weight: 400;
+  font-style: normal;
+background-color: #f9f9f9;
+}
+
+
+/*============
+nav
+=============*/
+nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  /* 初期位置を右側に設定 */
+  bottom: 0;
+  width: 300px;
+  background: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: .5s;
+  z-index: 3;
+  left: auto;
+  /* 左側の位置指定を無効化 */
+}
+
+.open nav {
+  right: 0;
+  /* メニューを右側にスライド */
+  height: 70%;
+}
+
+nav .inner {
+  padding: 25px;
+}
+
+nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  /* 縦方向にリストアイテムを配置 */
+  justify-content: center;
+  /* 水平方向で中央揃え */
+  align-items: center;
+  /* 垂直方向で中央揃え */
+  height: 100%;
+  /* 親要素の高さを埋める */
+}
+
+nav .inner ul li {
+  margin: 10px 0;
+  /* 上下のスペースを調整 */
+  width: 100%;
+  text-align: center;
+}
+
+nav .inner ul li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+nav .inner ul li a:hover {
+  background: #e4e4e4;
+}
+
+@media screen and (max-width: 767px) {
+  nav {
+    right: -240px;
+    /* 小さい画面用の初期位置 */
+    width: 240px;
+    /* 幅を調整 */
+  }
+}
+
+/*============
+@keyframes
+=============*/
+@keyframes equalizer01 {
+  0% {
+    width: 70%;
+  }
+
+  10% {
+    width: 50%;
+  }
+
+  20% {
+    width: 100%;
+  }
+
+  30% {
+    width: 10%;
+  }
+
+  40% {
+    width: 50%;
+  }
+
+  50% {
+    width: 70%;
+  }
+
+  60% {
+    width: 50%;
+  }
+
+  70% {
+    width: 10%;
+  }
+
+  80% {
+    width: 100%;
+  }
+
+  90% {
+    width: 10%;
+  }
+
+  100% {
+    width: 70%;
+  }
+}
+
+@keyframes equalizer02 {
+  0% {
+    width: 30%;
+  }
+
+  10% {
+    width: 20%;
+  }
+
+  20% {
+    width: 40%;
+  }
+
+  30% {
+    width: 10%;
+  }
+
+  40% {
+    width: 20%;
+  }
+
+  50% {
+    width: 30%;
+  }
+
+  60% {
+    width: 20%;
+  }
+
+  70% {
+    width: 10%;
+  }
+
+  80% {
+    width: 40%;
+  }
+
+  90% {
+    width: 10%;
+  }
+
+  100% {
+    width: 30%;
+  }
+}
+
+/*============
+.toggle_btn
+=============*/
+.toggle_btn {
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  /* ハンバーガーボタンを右上に配置 */
+  width: 60px;
+  height: 30px;
+  transform: translate(0, 0);
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 3;
+  left: auto;
+  /* 左側の位置指定を無効化 */
+}
+
+.open .toggle_btn {
+  right: 330px;
+  /* 開いたときのボタン位置 */
+}
+
+.toggle_btn span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #666;
+  transition: all .5s;
+}
+
+.toggle_btn span:nth-child(1) {
+  top: 5px;
+  width: 60px;
+  animation: equalizer01 7000ms infinite;
+}
+
+.toggle_btn span:nth-child(2) {
+  top: 15px;
+  width: 30px;
+  animation: equalizer02 5000ms infinite;
+  animation-delay: 0.33s;
+}
+
+.toggle_btn span:nth-child(3) {
+  top: 25px;
+  width: 20px;
+  animation: equalizer02 5000ms infinite;
+}
+
+.open .toggle_btn span {
+  background-color: #fff;
+  width: 30px;
+}
+
+.open .toggle_btn span:nth-child(1) {
+  transform: translate(0, 10px) rotate(-45deg);
+  animation: unset;
+}
+
+.open .toggle_btn span:nth-child(2) {
+  opacity: 0;
+  animation: unset;
+}
+
+.open .toggle_btn span:nth-child(3) {
+  transform: translate(0, -10px) rotate(45deg);
+  animation: unset;
+}
+
+@media screen and (max-width: 767px) {
+  .open .toggle_btn {
+    right: 260px;
+    /* 小さい画面用の開いたときのボタン位置 */
+  }
+}
+
+/*============
+#mask
+=============*/
+#mask {
+  display: none;
+}
+
+.open #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  z-index: 2;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+/*============
+main
+=============*/
+
+main h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+/*============
+body
+=============*/
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.works-title {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.6s;
+  /* works-titleのアニメーション、2.7秒後に開始 */
+}
+
+.works-title h2 {
+  writing-mode: vertical-rl;
+  font-size: 0.8333333333333334vw;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  position: relative;
+}
+
+.works-title h2::before {
+  position: absolute;
+  content: "";
+  width: 0.8px;
+  height: 82px;
+  background-color: #37383C;
+  top: -100px;
+  left: 50%;
+  transition: all .4s;
+}
+
+.works {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20vw;
+  padding: 0 50px;
+}
+
+
+/* テキストがふわっと出現するアニメーション */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media screen and (max-width: 959px) {
+
+  .works-title,
+  .top__wrapper,
+  .top__text,
+  .top__image {
+    position: static;
+  }
+}
+
+@media screen and (max-width:959px) {
+
+  .works-title {
+    display: none;
+  }
+
+  .top {
+    padding-top: 110px
+  }
+
+  .top__wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+/* ギャラリーエリア（2列配置） */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列に配置 */
+  gap: 70px;
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+/* 各作品ボタン */
+.gallery-item {
+  display: flex;
+  flex-direction: column; /* 縦に配置（画像→説明文） */
+  align-items: center; /* 中央揃え */
+  text-align: center;
+  opacity: 0; /* 最初は非表示 */
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  text-decoration: none; /* リンクの下線を消す */
+}
+
+/* 画像のスタイル（ボタン化） */
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 動画のスタイル（画像と同じ見た目に） */
+.gallery-video {
+  width: 100%;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* ホバーでふわっと */
+.gallery-item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.no-hover {
+  pointer-events: none;
+}
+
+/* 作品のタイトル & 説明 */
+.text {
+  width: 100%; /* 画像と同じ幅 */
+  padding: 15px;
+  margin-top: 10px; /* 画像との間隔を確保 */
+}
+
+.text h3 {
+  margin: 0;
+  font-size: 13px;
+  color: #333;
+}
+
+.text p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* スクロール時に出現 */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.bottom{
+  position: relative;
+}
+.bottom img {
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 50%; 
+  left: 20%;
+  width: 80%;
+  color: #333;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  letter-spacing: 0.1em;
+  line-height: 2em;
+}
+
+.overlay a {
+  color: #333;
+  text-decoration: none;
+}
+
+.overlay img {
+  width: 5%;
+}
+
+
+/* フッター */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  font-size: 0.5rem;
+}
