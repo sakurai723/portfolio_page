@@ -1,0 +1,175 @@
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>制作物のすべて</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/allworks.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair:wght@300&family=Zen+Kaku+Gothic+New&display=swap"
+    rel="stylesheet">
+</head>
+
+<div id="navArea">
+
+  <nav>
+    <div class="inner">
+      <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="about.html">me</a></li>
+        <li><a href="allworks.html">works</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="toggle_btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div id="mask"></div>
+
+</div>
+
+<body>
+  <div class="body-wrapper">
+    <div id="cursor" class="cursor"></div>
+    <main>
+      <div class="works-title">
+        <h2>すべて</h2>
+      </div>
+      <div class="works">
+        <div class="top__wrapper">
+        </div>
+      </div>
+
+
+      <div class="gallery">
+        <a href="works1.html" class="gallery-item">
+          <img src="images/ryokan.png" alt="作品1">
+          <div class="text">
+            <h3>旅館LPサイト（架空）</h3>
+            <p>web site</p>
+          </div>
+        </a>
+
+        <a href="works2.html" class="gallery-item">
+          <img src="images/tsumi.png" alt="作品2">
+          <div class="text">
+            <h3>自作アクセサリーサイト</h3>
+            <p>web site</p>
+          </div>
+        </a>
+
+        <a href="works3.html" class="gallery-item">
+          <img src="images/portfolio.png" alt="作品3">
+          <div class="text">
+            <h3>ポートフォリオサイト</h3>
+            <p>web site</p>
+          </div>
+        </a>
+
+        <a href="banner1.html" class="gallery-item">
+          <img src="images/topimg_holidaybanner.png" alt="作品4">
+          <div class="text">
+            <h3>セールバナー</h3>
+            <p>banner</p>
+          </div>
+        </a>
+
+        <a href="banner2.html" class="gallery-item">
+          <img src="images/topimg_recurtbanner.png" alt="作品5">
+          <div class="text">
+            <h3>求人バナー</h3>
+            <p>banner</p>
+          </div>
+        </a>
+
+        <a href="" class="gallery-item">
+          <!-- <img src="" alt="作品6"> -->
+          <div class="text">
+            <h3></h3>
+            <p></p>
+          </div>
+        </a>
+
+        <div class="gallery-item no-hover">
+          <img src="images/【ポスター】健診ポスター.png" alt="作品7">
+          <div class="text">
+            <h3>キャンプポスター</h3>
+            <p>poster</p>
+          </div>
+        </div>
+
+        <div class="gallery-item no-hover">
+          <img src="images/【ポスター】親子キャンプ.png" alt="作品8">
+          <div class="text">
+            <h3>健診ポスター</h3>
+            <p>poster</p>
+          </div>
+        </div>
+
+
+        <div class="gallery-item no-hover">
+          <img src="images/【ポスター】桜.png" alt="作品8">
+          <div class="text">
+            <h3>常駐先コンテンツ</h3>
+            <p>poster</p>
+          </div>
+        </div>
+
+        <div class="gallery-item no-hover">
+          <video autoplay muted loop playsinline class="gallery-video">
+              <source src="images/アイテレ神田の由来.mp4" type="video/mp4">
+          </video>
+          <div class="text">
+              <h3>常駐先コンテンツ</h3>
+              <p>movie</p>
+          </div>
+        </div>
+  
+
+      </div>
+ </main>
+
+
+    <div class="bottom  fade-in">
+      <img src="images/bottomimg.png" alt="">
+      <div class="overlay">
+        <p><a href="index.html"><img src="images/home.png" alt=""></a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2025 Sakurai Natsumi Website</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/script.js"></script>
+  <script type="text/javascript" src="assets/slick-1.8.1/slick/slick.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const galleryItems = document.querySelectorAll(".gallery-item");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      }, { threshold: 0.3 });
+
+      galleryItems.forEach(item => {
+        observer.observe(item);
+      });
+    });
+  </script>
+
+  </div>
+</body>
+
+</html>

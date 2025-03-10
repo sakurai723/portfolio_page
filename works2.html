@@ -1,0 +1,190 @@
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>アクセサリーサイト</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style-works.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair:wght@300&family=Zen+Kaku+Gothic+New&display=swap"
+    rel="stylesheet">
+</head>
+
+<div id="navArea">
+
+  <nav>
+    <div class="inner">
+      <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="about.html">me</a></li>
+        <li><a href="allworks.html">works</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="toggle_btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div id="mask"></div>
+
+</div>
+
+<body>
+  <div class="body-wrapper">
+    <div id="cursor" class="cursor"></div>
+    <main>
+      <div class="works-title">
+        <h2>制作物</h2>
+      </div>
+      <div class="works">
+        <div class="top__wrapper">
+          <div class="top__text">
+            <span>⋆˙⟡Web site</span>
+            <h1 class="nicori-h1">アクセサリーサイト</h1>
+          </div>
+          <div class="post-information__wrapper">
+            <ul>
+              <li class="ul fadeUpTrigger">
+                <h3>対応機種</h3>
+                <p>PC / SP</p>
+              </li>
+              <li class="ul fadeUpTrigger">
+                <h3>制作期間</h3>
+                <p>約2ヶ月</p>
+              </li>
+              <li class="ul fadeUpTrigger">
+                <h3>使用ツール</h3>
+                <p>HTML / CSS / jquery / Illustrator / Photoshop</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="top__post-description">
+          <div class="top__image">
+            <img class="top__image-pic" src="images/tsumi.png" alt="">
+          </div>
+          <p class="top__post-description-p fadeUpTrigger">
+            自分で作ったハンドメイドアクセサリーのサイトを作りました。白やシルバーなどの、色味がシンプルな作品が多いので
+            それに合わせてページ自体もシンプルな色使いを心がけました。女性をターゲット層に考えているので、装飾品などはお花を用いてより華やかな印象にしました。 また、物撮りにも挑戦し小物やお花を使って作品の写真を撮りました。
+            さらに、スマホ版では写真の表現を減らし、ギャラリー部分の代わりに動画を入れ、少し違った印象になるようにしました。
+          </p>
+
+        </div>
+      </div>
+      <div class="fullsize-pc-image" style="margin-bottom:10px; background-color: #f0f0f0;">
+        <div class="fullsize-pc-image__wrapper">
+          <span><img src="images/無題172_20250118221831.png" alt="scroll"></span>
+          <div class="fullsize-pc-image__img fadeUpTrigger">
+            <img src="images/tsumiPC.png" alt="ポートフォリオPC_TOP">
+          </div>
+          <div class="sp-scroll">
+            <img src="images/tsumiSP.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="works-list">
+      <ul>
+          <!-- 1行目（3列） -->
+          <li class="works-list__item">
+            <a href="works1.html">
+              <img src="images/ryokan.png" alt="Project 1">
+              <span class="works-list__title">旅館ホームページ（架空）</span>
+            </a>
+          </li>
+
+          <li class="works-list__item">
+            <a href="works3.html">
+              <img src="images/portfolio.png" alt="Project 2">
+              <span class="works-list__title">ポートフォリオ</span>
+            </a>
+          </li>
+
+          <!-- 2行目（2列） -->
+          <li class="works-list__item wide">
+            <a href="banner2.html">
+              <img src="images/topimg_recurtbanner.png" alt="Project 5">
+              <span class="works-list__title">看護師リクルートバナー（架空）</span>
+            </a>
+          </li>
+
+          <li class="works-list__item wide">
+            <a href="banner1.html">
+              <img src="images/topimg_holidaybanner.png" alt="Project 5">
+              <span class="works-list__title">SALEバナー（架空）</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <a href="allworks.html" class="button">すべて見る</a>
+
+    </main>
+    <div class="bottom  fade-in">
+      <img src="images/bottomimg.png" alt="">
+      <div class="overlay">
+        <p><a href="index.html"><img src="images/home.png" alt=""></a></p>
+        </div>
+  </div>
+</div>
+  
+        <!-- フッター -->
+    <footer>
+      <p>&copy; 2025 Sakurai Natsumi Website</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javascript" src="assets/slick-1.8.1/slick/slick.js"></script>
+    <script>
+      APNG.ifNeeded().then(function () {
+        var images = document.querySelectorAll(".apng-image");
+        for (var i = 0; i < images.length; i++) APNG.animateImage(images[i]);
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $('#sp-hamburger').on('click', function () {
+          $(this).find('.icon').toggleClass('open');
+          $('.sp-nav').slideToggle();
+        });
+
+        $('[id^="nav-link-"]').on('click', function () {
+          $('.icon').toggleClass('open');
+          $('.sp-nav').slideToggle();
+        });
+      });
+
+      $('.btn').click(function () {
+        $(this).next('.accordion__body').slideToggle();
+        $(this).toggleClass('cross');
+      });
+
+      document.querySelector(".btn").addEventListener("click", function () {
+        var circle = document.querySelector(".circle");
+        circle.classList.toggle("cross");
+      });
+    </script>
+    <script>
+      const clickBtn = document.getElementById('click-btn');
+      const popupWrapper = document.getElementById('popup-wrapper');
+      const close = document.getElementById('close');
+      clickBtn.addEventListener('click', () => {
+        popupWrapper.style.display = "block";
+      });
+      popupWrapper.addEventListener('click', e => {
+        if (e.target.id === popupWrapper.id || e.target.id === close.id) {
+          popupWrapper.style.display = 'none';
+        }
+      });
+    </script>
+
+  </div>
+</body>
+
+</html>
